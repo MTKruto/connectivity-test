@@ -1,0 +1,24 @@
+.connectivity-test-result {
+  display: flex;
+  flex-direction: column;
+  padding: 12px 0;
+}
+
+.connectivity-test-result .status {
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.connectivity-test-result .status .dots {
+  transform: translateY(0.5px);
+}
+
+.connectivity-test-result span.dimmed {
+  color: var(--overlay);
+}
+
+.connectivity-test-result span.error {
+  color: #aa0000;
+}

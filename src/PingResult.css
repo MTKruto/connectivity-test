@@ -1,0 +1,11 @@
+.ping-result-red {
+  color: #aa0000
+}
+
+.ping-result-yellow {
+  color: #e6e02e
+}
+
+.ping-result-green {
+  color: #24d211
+}

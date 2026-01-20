@@ -1,0 +1,22 @@
+.data-center-selector-item {
+  padding: 12px;
+  cursor: pointer;
+  border: 1px solid var(--overlay);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.is-selected {
+  border-color: var(--text);
+  outline: 2px solid var(--text);
+}
+
+.data-center-id {
+  font-weight: 500;
+}
+
+.data-center-location {
+  color: var(--overlay);
+  font-size: 0.75rem;
+}

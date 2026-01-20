@@ -1,0 +1,72 @@
+.dots {
+  display: inline-flex;
+  --transform-amount: 10%;
+  font-size: 150%;
+  transform: translateY(-25%);
+  --transform-amount: 4px;
+  display: inline-flex;
+  gap: 4px;
+}
+
+.dots > span {
+  display: inline-block;
+  animation-iteration-count: infinite;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  color: #808080;
+  width: 4px;
+  height: 4px;
+  border-radius: 1.5rem;
+  background-color: black;
+}
+
+.dots[data-islarge] {
+  gap: 14px;
+
+  & > span {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.dots .one {
+  animation-name: dot_one;
+}
+
+.dots .two {
+  animation-name: dot_two;
+}
+
+.dots .three {
+  animation-name: dot_three;
+}
+
+@keyframes dot_one {
+  20% {
+    opacity: 0.1;
+  }
+
+  40% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes dot_two {
+  40% {
+    opacity: 0.1;
+  }
+
+  60% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes dot_three {
+  60% {
+    opacity: 0.1;
+  }
+
+  80% {
+    opacity: 0.5;
+  }
+}

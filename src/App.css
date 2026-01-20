@@ -1,0 +1,77 @@
+button {
+  width: 100%;
+}
+
+input, button {
+  font-size: 1rem;
+}
+
+header, main {
+  padding: 12px;
+}
+
+header > section, main > section {
+  width: 100%;
+  margin: 0 auto;
+}
+
+header > section {
+  max-width: 980px;
+}
+
+main > section {
+  max-width: 480px;
+}
+
+header span {
+  opacity: 0.5;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  background-color: #ffffff;
+  color: #000000;
+  border: 2px solid #000000;
+  padding: 8px;
+}
+
+button.primary {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.note {
+  color: var(--overlay);
+  font-size: 0.75rem;
+  padding: 12px;
+}
+
+.or-container {
+  position: relative;
+  text-align: center;
+  margin: 12px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.or-container::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+  background-color: var(--overlay);
+  height: 1px;
+  z-index: -1;
+}
+
+.or {
+  background-color: var(--background);
+  padding: 0 4px;
+  font-size: 0.75rem;
+  color: var(--overlay);
+  line-height: 1;
+}
