@@ -1,9 +1,10 @@
 import { ClientDispatcher, ClientWorker, type DC, getRandomId } from "@mtkruto/mtkruto";
+import Worker from "@mtkruto/mtkruto/worker?worker";
 import { connectivityTest, setConnectivityTest } from "./state/connectivityTest";
 import { selectedDataCenters } from "./state/selectedDataCenters";
 
 export async function startTest() {
-  const clientWorker = new ClientWorker("/mtkruto-worker.js", { type: "module" });
+  const clientWorker = new ClientWorker(new Worker());
   const dataCenters = Array.from(selectedDataCenters().values())
     .sort((a, b) => a.localeCompare(b));
 

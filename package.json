@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@mtkruto/mtkruto": "jsr:^0.79.4",
+    "@mtkruto/mtkruto": "jsr:^0.79.6",
     "solid-js": "^1.9.10"
   },
   "devDependencies": {
