@@ -16,7 +16,7 @@ export function ConnectivityTestResults() {
               <DataCenterDisplayName dc={dc} /> ({dataCenterLocations[dc]})
             </div>
             <div class="status">
-              {status === 'connection-failed' ? <span class="error">Connection failed</span> : status === "connecting"
+              {status === "connection-failed" ? <span class="error">Connection failed</span> : status === "connecting"
                 ? (
                   <>
                     <Dots />
