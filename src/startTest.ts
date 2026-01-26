@@ -3,7 +3,12 @@ import Worker from "@mtkruto/mtkruto/worker?worker";
 import { connectivityTest, setConnectivityTest } from "./state/connectivityTest";
 import { selectedDataCenters } from "./state/selectedDataCenters";
 
+let isTestRunning = false;
+
 export async function startTest() {
+  if (isTestRunning) return;
+  isTestRunning = true;
+
   const clientWorker = new ClientWorker(new Worker());
   const dataCenters = Array.from(selectedDataCenters().values())
     .sort((a, b) => a.localeCompare(b));
@@ -18,12 +23,13 @@ export async function startTest() {
         map.set(dataCenter, "connecting");
         setConnectivityTest(new Map(map));
         console.log("set connectivity test to", map);
-        const client = await clientWorker.createClient({
+        const client = await clientWorker.createClient(crypto.randomUUID(), {
           initialDc: dataCenter,
         });
         await client.connect();
         clients.set(dataCenter, client);
-      }).catch(() => {
+      }).catch((err) => {
+        console.error(err);
         const map = connectivityTest();
         map.set(dataCenter, "connection-failed");
         setConnectivityTest(new Map(map));
@@ -44,16 +50,15 @@ export async function startTest() {
 
         const map = connectivityTest();
         map.set(dataCenter, {
-          type: i === (rounds - 1)
-            ? "done"
-            : "running",
+          type: i === (rounds - 1) ? "done" : "running",
           ping: Math.round(delay / (i + 1)),
         });
         setConnectivityTest(new Map(map));
 
-        await new Promise(r => setTimeout(r, 500));
+        await new Promise((r) => setTimeout(r, 500));
       }
-    }).catch(() => {
+    }).catch((err) => {
+      console.error(err);
       const map = connectivityTest();
       map.set(dataCenter, "connection-failed");
       setConnectivityTest(new Map(map));
