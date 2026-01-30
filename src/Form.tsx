@@ -24,12 +24,12 @@ export function Form() {
       <button
         class="primary"
         onClick={() => {
+          const set = selectedDataCenters();
           for (const dataCenter of dataCenters) {
-            const set = selectedDataCenters();
             set.add(dataCenter);
-            setSelectedDataCenters(new Set(set));
-            startTest();
           }
+          setSelectedDataCenters(new Set(set));
+          startTest();
         }}
       >
         Test All
